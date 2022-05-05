@@ -1,5 +1,4 @@
 import sqlite3 as sql
-from tabulate import tabulate  # make stdout table looks better
 
 
 def list_to_str(row):
@@ -29,14 +28,12 @@ if __name__ == '__main__':
     record_num = 0
     insert_values = []
     for row in cursor:
-        output_table.append([row[1], row[2], row[4]])
+        print([row[1], row[2], row[4]])
         insert_values.append(list_to_str(row))
         record_num += 1
 
     conn1.close()
 
-    # show source data
-    print(tabulate(output_table, headers='firstrow'))
     print('%d records in total.' % record_num)
 
 
