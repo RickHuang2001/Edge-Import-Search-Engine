@@ -46,7 +46,7 @@ if __name__ == '__main__':
     if('n' not in yn and 'N' not in yn):
         conn2 = sql.connect(destination_path)
         c2 = conn2.cursor()
-        c2.execute('insert into keywords values %s;' % insert_values_str)
+        c2.execute('insert or ignore into keywords values %s;' % insert_values_str)
         print('Insert succeeded!')
         conn2.commit()
         conn2.close()
